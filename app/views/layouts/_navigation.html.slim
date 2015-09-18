@@ -1,0 +1,16 @@
+/! Navigation
+nav#navbarSettings.navbar.navbar-default.navbar-fixed-top role="navigation" 
+  .container
+    .navbar-header
+      button.navbar-toggle data-target="#bs-navbar-collapse-1" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to "#", class: 'navbar-brand' do
+        ' Short
+        span.text-primary Url
+    #bs-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li.dropdown
+          = link_to "Home", "#"

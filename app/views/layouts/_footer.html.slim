@@ -1,0 +1,34 @@
+a.back-to-top href="#" 
+  i.fa.fa-angle-up
+/! Footer
+footer.footer
+  .footer-top
+    .container
+      .row
+        .col-md-4.col-lg-4.col-sm-12.col-xs-12
+          h4 Contact
+          ul.info-list.md-list.i-primary
+            li
+              = mail_to "maxim.djuliy@gmail.com" do
+                | maxim.djuliy@gmail.com
+        .space-sm.visible-sm.visible-xs
+        .col-md-4.col-lg-4.col-xs-12
+          h4 Hosted on
+          = link_to 'https://goo.gl/ffq1pg', rel: "nofollow", target: '_blank' do
+            = image_tag  'digitalocean-badge-gray.png', class: 'text-center', alt: 'We hosted on DigitalOcean', title: 'We hosted on DigitalOcean'
+        .space-sm.visible-sm.visible-xs
+        .col-md-4.col-lg-4.col-xs-12
+          h4 Find me on
+          ul.circle-icons.icons-list
+            li
+              a href="https://github.com/max-si-m" title="Follow us" rel="nofollow" 
+                i.fa.fa-github
+            li
+              a href="https://twitter.com/max_si_m" title="Follow us" rel="nofollow" 
+                i.fa.fa-twitter
+            li
+              a href="https://vk.com/dev_in_devbattles" title="Follow us" rel="nofollow" 
+                i.fa.fa-vk
+  .footer-bottom
+    .container
+      p &copy; 2015 ShortUrl. All rights reserved.
