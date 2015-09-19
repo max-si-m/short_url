@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Address:
+  = @url.address
+p
+  strong Short address:
+  = @url.short_address
+p
+  strong Clicks:
+  = @url.clicks
+
+= link_to 'Edit', edit_url_path(@url)
+'|
+= link_to 'Back', urls_path
