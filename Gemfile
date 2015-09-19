@@ -17,6 +17,7 @@ gem 'metamagic'
 gem 'pry-rails'
 gem 'responders', '~> 2.0'
 gem 'rqrcode'
+gem 'social_shares'
 
 group :production do
   gem 'rails_12factor'

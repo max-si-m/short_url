@@ -1,12 +1,35 @@
 section
-  p
-    strong Address:
-    = @url.address
-  p
-    strong Short address:
-    = @url.short_link
-  p
-    strong Clicks:
-    = @url.clicks
-  .col-lg-12
+  .col-lg-4
     == @qr.as_html
+  .col-lg-8
+    .row
+      h2
+        b
+          ' Address:
+        = @url.address
+      h2.select
+        b
+          ' Short address:
+        = @url.short_link
+      hr
+      h2
+        b
+          ' Social sharing
+      .row
+        .col-lg-2
+          span.btn.btn-default
+            i.fa.fa-twitter
+            = SocialShares.twitter @url.short_link
+        .col-lg-2
+          span.btn.btn-default
+            i.fa.fa-vk
+            = SocialShares.vkontakte @url.short_link
+        .col-lg-2
+          span.btn.btn-default
+            i.fa.fa-google-plus
+            = SocialShares.google @url.short_link
+      hr
+      h2
+        b
+          ' Clicks:
+        = @url.clicks
