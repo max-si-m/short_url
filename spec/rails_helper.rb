@@ -11,7 +11,6 @@ require 'factory_girl_rails'
 require 'capybara-screenshot/rspec'
 
 ActiveRecord::Migration.maintain_test_schema!
-Capybara.javascript_driver = :webkit
 
 # add support files
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }

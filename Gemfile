@@ -21,10 +21,12 @@ gem 'social_shares'
 
 group :production do
   gem 'rails_12factor'
+  gem 'puma'
 end
 
 group :test do
   gem 'rspec-rails'
+  gem 'selenium-webdriver'
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'launchy'
