@@ -6,4 +6,5 @@ $(document).ready ->
     address = $(this).find('#url_address').val()
     if /https?/gi.test(address) == false
       alert 'Only urls! :)'
+      false
   false

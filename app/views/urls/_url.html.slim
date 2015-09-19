@@ -4,7 +4,9 @@ section
     = @url.address
   p
     strong Short address:
-    = @url.short_address
+    = @url.short_link
   p
     strong Clicks:
     = @url.clicks
+  .col-lg-12
+    == @qr.as_html

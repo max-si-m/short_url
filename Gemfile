@@ -16,6 +16,7 @@ gem 'slim-rails'
 gem 'metamagic'
 gem 'pry-rails'
 gem 'responders', '~> 2.0'
+gem 'rqrcode'
 
 group :production do
   gem 'rails_12factor'

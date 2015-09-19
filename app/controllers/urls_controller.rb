@@ -1,14 +1,11 @@
 # Url controller
 class UrlsController < ApplicationController
-  before_action :set_url, only: [:show, :edit, :update, :destroy]
+  before_action :new_url, only: [:show, :edit, :update, :destroy]
   respond_to :html, :js
 
   def index
-    @urls = Url.all
     @url = Url.new
   end
-
-  def show; end
 
   def new
     @url = Url.new
@@ -16,12 +13,13 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.find_or_create_by(url_params)
+    @qr = RQRCode::QRCode.new @url.short_link, size: 4, level: :h
   end
 
   private
 
-  def set_ur
-    @url = Url.find(params[:id])
+  def new_url
+    @url = Url.new
   end
 
   def url_params

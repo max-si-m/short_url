@@ -1,5 +1,5 @@
 <% unless @url.valid? %>
   $('#content').html('<%= escape_javascript render('form', locals:{url: @url}) %>');
 <% else %>
-  $('#content').html('<%= escape_javascript render('url', locals:{url: @url}) %>');
+  $('#content').append('<%= escape_javascript render('url', locals:{url: @url}) %>');
 <% end %>

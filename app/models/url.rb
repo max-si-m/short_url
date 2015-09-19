@@ -7,6 +7,11 @@ class Url < ActiveRecord::Base
     update(short_address: crypt_data(id))
   end
 
+  def short_link
+    # TODO: fix it!
+    "http://localhost:3000/#{short_address}"
+  end
+
   private
 
   def crypt_data(number)
