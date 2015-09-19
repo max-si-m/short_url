@@ -15,6 +15,7 @@ gem 'slim-rails'
 
 gem 'metamagic'
 gem 'pry-rails'
+gem 'responders', '~> 2.0'
 
 group :production do
   gem 'rails_12factor'
@@ -34,9 +35,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
-  gem 'annotate'
   gem 'quiet_assets'
-  gem 'letter_opener'
   gem 'faker'
   gem 'factory_girl_rails'
 end

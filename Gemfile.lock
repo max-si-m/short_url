@@ -37,9 +37,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    annotate (2.6.10)
-      activerecord (>= 3.2, <= 4.3)
-      rake (~> 10.4)
     arel (6.0.3)
     autoprefixer-rails (6.0.3)
       execjs
@@ -114,8 +111,6 @@ GEM
     json (1.8.3)
     launchy (2.4.3)
       addressable (~> 2.3)
-    letter_opener (1.4.1)
-      launchy (~> 2.2)
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -182,6 +177,8 @@ GEM
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    responders (2.1.0)
+      railties (>= 4.2.0, < 5)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -245,7 +242,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate
   autoprefixer-rails
   better_errors
   binding_of_caller
@@ -261,13 +257,13 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
-  letter_opener
   metamagic
   pg
   pry-rails
   quiet_assets
   rails (= 4.2.3)
   rails_12factor
+  responders (~> 2.0)
   rspec-rails
   sass-rails (~> 5.0)
   slim-rails
