@@ -8,12 +8,10 @@ class UrlsController < ApplicationController
   def new; end
 
   def redirect
-    if params[:short_address]
-      url = Url.find_by(short_address: params[:short_address])
-      if url
-        url.clicked!
-        return redirect_to url.address
-      end
+    url = Url.find_by(short_address: params[:short_address])
+    if url
+      url.clicked!
+      return redirect_to url.address
     end
     render 'url_not_found', status: 404
   end
