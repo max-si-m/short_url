@@ -4,7 +4,7 @@ class Url < ActiveRecord::Base
   validates :short_address, presence: true, on: :update
 
   after_create do
-    update(short_address: crypt_data(id))
+    update short_address: crypt_data(id)
   end
 
   def short_link
