@@ -12,6 +12,10 @@ class Url < ActiveRecord::Base
     "http://localhost:3000/#{short_address}"
   end
 
+  def clicked!
+    increment!(:clicks)
+  end
+
   private
 
   def crypt_data(number)

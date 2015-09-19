@@ -1,14 +1,21 @@
 # Url controller
 class UrlsController < ApplicationController
-  before_action :new_url, only: [:show, :edit, :update, :destroy]
+  before_action :new_url, only: [:index, :new, :redirect]
   respond_to :html, :js
 
-  def index
-    @url = Url.new
-  end
+  def index; end
 
-  def new
-    @url = Url.new
+  def new; end
+
+  def redirect
+    if params[:short_address]
+      url = Url.find_by(short_address: params[:short_address])
+      if url
+        url.clicked!
+        return redirect_to url.address
+      end
+    end
+    render 'url_not_found', status: 404
   end
 
   def create
