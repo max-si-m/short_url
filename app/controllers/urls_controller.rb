@@ -15,12 +15,7 @@ class UrlsController < ApplicationController
   end
 
   def create
-    @url = Url.new(url_params)
-    flash.now[:notice] = 'Task was successfully created.' if @task.save
-  end
-
-  def destroy
-    flash.now[:notice] = 'Url was successfully destroyed.' if @url.destroy
+    @url = Url.find_or_create_by(url_params)
   end
 
   private

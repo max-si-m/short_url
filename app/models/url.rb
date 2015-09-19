@@ -1,5 +1,11 @@
 # URL model
 class Url < ActiveRecord::Base
+  validates :address, format: { with: /https?/ }
+  validates :short_address, presence: true, on: :update
+
+  after_create do
+    update(short_address: crypt_data(id))
+  end
 
   private
 
