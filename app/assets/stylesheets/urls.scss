@@ -1,3 +1,11 @@
 // Place all the styles related to the urls controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.input-group[class*="col-"] {
+  float: left !important;
+  padding: 5px;
+}
+
+.btn-shorten {
+  height: 48px;
+}

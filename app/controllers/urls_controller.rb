@@ -5,6 +5,7 @@ class UrlsController < ApplicationController
 
   def index
     @urls = Url.all
+    @url = Url.new
   end
 
   def show; end
@@ -15,7 +16,6 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.new(url_params)
-
     flash.now[:notice] = 'Task was successfully created.' if @task.save
   end
 
@@ -30,6 +30,6 @@ class UrlsController < ApplicationController
   end
 
   def url_params
-    params.require(:url).permit(:address, :short_address, :clicks)
+    params.require(:url).permit(:address)
   end
 end

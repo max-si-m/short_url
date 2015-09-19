@@ -1,25 +1,5 @@
-h1 Listing urls
-
-table
-  thead
-    tr
-      th Address
-      th Short address
-      th Clicks
-      th
-      th
-      th
-
-  tbody
-    - @urls.each do |url|
-      tr
-        td = url.address
-        td = url.short_address
-        td = url.clicks
-        td = link_to 'Show', url
-        td = link_to 'Edit', edit_url_path(url)
-        td = link_to 'Destroy', url, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Url', new_url_path
+section.section
+  .container
+    .col-lg-12.col-md-8
+      #content
+        = render 'form'

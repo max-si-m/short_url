@@ -1,18 +1,15 @@
-= form_for @url do |f|
-  - if @url.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@url.errors.count, "error")} prohibited this url from being saved:"
-      ul
-        - @url.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :short_address
-    = f.text_field :short_address
-  .field
-    = f.label :clicks
-    = f.number_field :clicks
-  .actions = f.submit
+section.section
+  .container
+    .space
+    = form_for @url do |f|
+      - if @url.errors.any?
+        #error_explanation
+          h2 => "#{pluralize(@url.errors.count, "error")} prohibited this url from being saved:"
+          ul
+            - @url.errors.full_messages.each do |message|
+              li = message
+      .row
+        .input-group.input-group-lg.col-lg-7.col-md-9
+          = f.text_field :address, placeholder: 'Paste a link to shorten it', class: 'form-control'
+        .input-group.input-group-lg.col-lg-5.col-md-3
+          => f.submit 'SHORTEN', class: 'btn btn-primary btn-shorten'
