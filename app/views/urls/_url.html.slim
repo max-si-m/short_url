@@ -12,10 +12,10 @@ section
           ' Short address:
         = @url.short_link
       hr
-      h2
+      /h2
         b
           ' Social sharing
-      .row
+      /.row
         .col-lg-2
           span.btn.btn-default
             i.fa.fa-twitter
@@ -28,7 +28,7 @@ section
           span.btn.btn-default
             i.fa.fa-google-plus
             = SocialShares.google @url.short_link
-      hr
+        hr
       h2
         b
           ' Clicks:
