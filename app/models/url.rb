@@ -17,8 +17,7 @@ class Url < ActiveRecord::Base
   end
 
   def short_link
-    # TODO: fix it!
-    "http://localhost:3000/#{short_address}"
+    "#{Rails.application.config.root_url}/#{short_address}"
   end
 
   def clicked!

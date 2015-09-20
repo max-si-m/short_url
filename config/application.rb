@@ -18,6 +18,7 @@ Bundler.require(*Rails.groups)
 module InnocodeTask
   # Basic application class
   class Application < Rails::Application
+    config.root_url = ENV['ROOT_URL'] || 'http://localhost:3000'
     config.active_record.raise_in_transactional_callbacks = true
 
     config.generators do |g|

@@ -40,7 +40,7 @@ RSpec.describe Url, type: :model do
   describe 'methods' do
     it '#short_link' do
       url.save
-      expect(url.short_link).to eq "http://localhost:3000/#{url.short_address}"
+      expect(url.short_link).to eq "#{Rails.application.config.root_url}/#{url.short_address}"
     end
 
     it '#clicked!' do
