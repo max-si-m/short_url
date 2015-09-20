@@ -1,18 +1,33 @@
 require 'rails_helper'
 
-RSpec.feature 'Url', type: :feature do
-  # describe 'the signin process' do
-  #   let(:url) { build :url }
+feature 'Url' do
+  given(:url) { build :url }
 
-  #   scenario 'add new url', js: true do
-  #     visit root_path
+  scenario 'valid creation', js: true do
+    visit root_path
+    fill_in 'url_address', with: url.address
+    find(:xpath, "//input[@value='SHORTEN']").click
 
-  #     fill_in 'url_address', with: url.address
-  #     click_button 'SHORTEN'
+    # for validation short_address
+    url.save
 
-  #     expect(page).to have_content url.address
-  #     expect(page).to have_content url.short_address
-  #     expect(page).to have_content url.cliks
-  #   end
-  # end
+    expect(page).to have_content("Address: #{url.address}")
+    expect(page).to have_content("Short address: #{url.short_link}")
+    expect(page).to have_content('Clicks: 0')
+  end
+
+  scenario 'invalid creation', js: true do
+    visit root_path
+
+    page.accept_alert 'Only urls! :)' do
+      find(:xpath, "//input[@value='SHORTEN']").click
+    end
+
+    # for validation short_address
+    url.save
+
+    expect(page).not_to have_content("Address: #{url.address}")
+    expect(page).not_to have_content("Short address: #{url.short_link}")
+    expect(page).not_to have_content('Clicks: 0')
+  end
 end
