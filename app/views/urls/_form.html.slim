@@ -9,7 +9,9 @@ section.section
             li = message
     = form_for @url, id: 'new_url', remote: true do |f|
       .row
-        .input-group.input-group-lg.col-lg-7.col-md-9
+        .input-group.input-group-lg.col-lg-5.col-md-9
           = f.text_field :address, placeholder: 'Paste a link to shorten it', class: 'form-control'
-        .input-group.input-group-lg.col-lg-5.col-md-3
+        .input-group.input-group-lg.col-lg-4.col-md-9
+          = f.text_field :short_address, placeholder: 'Custom short address, optional', maxlength: 11, class: 'form-control'
+        .input-group.input-group-lg.col-lg-2.col-md-3
           => f.submit 'SHORTEN', class: 'btn btn-primary btn-shorten'

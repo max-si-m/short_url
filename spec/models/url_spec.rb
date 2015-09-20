@@ -18,6 +18,23 @@ RSpec.describe Url, type: :model do
     it 'short_address' do
       expect { url.save }.to change(url, :short_address)
     end
+
+    context 'custom short_address' do
+      let(:custom_short_url) { 'привет' }
+      it 'translit before save' do
+        url.short_address = custom_short_url
+        expect { url.save }.to change(url, :short_address)
+                                .from(custom_short_url)
+                                .to( t(custom_short_url) )
+      end
+
+      it 'translit before save' do
+        url.short_address = custom_short_url
+        url.save
+        url.short_address = custom_short_url
+        expect { url.save }.to change(url, :short_address).to(nil)
+      end
+    end
   end
 
   describe 'methods' do

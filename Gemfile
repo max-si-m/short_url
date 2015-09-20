@@ -18,6 +18,7 @@ gem 'pry-rails'
 gem 'responders', '~> 2.0'
 gem 'rqrcode'
 gem 'social_shares'
+gem 'translit'
 
 group :production do
   gem 'rails_12factor'

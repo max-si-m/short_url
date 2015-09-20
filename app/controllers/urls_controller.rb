@@ -17,7 +17,8 @@ class UrlsController < ApplicationController
   end
 
   def create
-    @url = Url.find_or_create_by(url_params)
+    @url = Url.find_by_address(params[:url][:address])
+    @url = Url.create(url_params) if @url.nil?
     @qr = RQRCode::QRCode.new @url.short_link, size: 4, level: :h
   end
 
@@ -28,6 +29,6 @@ class UrlsController < ApplicationController
   end
 
   def url_params
-    params.require(:url).permit(:address)
+    params.require(:url).permit(:address, :short_address)
   end
 end

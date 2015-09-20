@@ -41,5 +41,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
   config.include WaitForAjaxHelpers
+  config.include TranslatingHelpers
   config.include Capybara::DSL
 end
