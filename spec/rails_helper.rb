@@ -13,6 +13,12 @@ require 'capybara-screenshot/rspec'
 ActiveRecord::Migration.maintain_test_schema!
 Capybara.javascript_driver = :webkit
 
+Capybara::Webkit.configure do |config|
+  config.block_unknown_urls
+  config.skip_image_loading
+  config.timeout = 5
+end
+
 # add support files
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
