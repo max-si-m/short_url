@@ -28,6 +28,6 @@ class UrlsController < ApplicationController
   end
 
   def url_params
-    params.require(:url).permit(:address)
+    params.require(:url).permit(:address, :short_address)
   end
 end
