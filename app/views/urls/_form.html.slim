@@ -1,8 +1,8 @@
 section.section
   .container
     .space
-    - if @url.errors.any?
-      #error_explanation
+    .row
+      - if @url.errors.any?
         h2 => "#{pluralize(@url.errors.count, "error")} prohibited this url from being saved:"
         ul
           - @url.errors.full_messages.each do |message|

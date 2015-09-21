@@ -1,19 +1,19 @@
 # URL model
 class Url < ActiveRecord::Base
   validates :address, format: { with: /https?/ }
-  validates :short_address, presence: true, on: :update
+  validates :short_address, uniqueness: true, on: :update
 
   before_save do
     if self.short_address.to_s.empty?
       self.short_address = nil
     else
       self.short_address = Translit.convert(self.short_address, :english).gsub(/\s/, '-').slice(0..10)
-      self.short_address = nil if Url.find_by_short_address(self.short_address)
+      self.short_address = nil if new_record? && Url.exists?(short_address: short_address)
     end
   end
 
   after_create do
-    update short_address: generate_short_address(id) if short_address.nil?
+    new_short_address if short_address.nil?
   end
 
   def short_link
@@ -35,5 +35,9 @@ class Url < ActiveRecord::Base
       out    = "#{codes[key]}#{out}"
     end
     "#{codes[number]}#{out}"
+  end
+
+  def new_short_address
+    update short_address: generate_short_address(id)
   end
 end

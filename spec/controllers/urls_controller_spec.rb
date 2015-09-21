@@ -50,7 +50,6 @@ RSpec.describe UrlsController, type: :controller do
       end
     end
 
-
     it 'invalid creation' do
       expect { invalid }.not_to change(Url, :count)
     end

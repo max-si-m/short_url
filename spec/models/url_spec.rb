@@ -27,13 +27,6 @@ RSpec.describe Url, type: :model do
                                 .from(custom_short_url)
                                 .to( t(custom_short_url) )
       end
-
-      it 'translit before save' do
-        url.short_address = custom_short_url
-        url.save
-        url.short_address = custom_short_url
-        expect { url.save }.to change(url, :short_address).to(nil)
-      end
     end
   end
 
